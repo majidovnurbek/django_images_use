@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Image Gallery with Titles and Descriptions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .gallery-item {
+            margin-bottom: 20px;
+            text-align: center; /* Matnni markazlash */
+        }
+
+        .gallery-item img {
+            margin: 0 auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-title {
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .gallery-description {
+            color: #555;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Image Gallery with Titles and Descriptions</h2>
+    <p>Rasmlar bilan sarlavha va ta'riflar:</p>
+    <div class="row">
+        {%for post in posts%}
+        <div class="col-sm-3 gallery-item">
+            <img src="{{ post.image.url }}" class="img-rounded" alt="Cinque Terre" width="100%" height="auto">
+            <div class="gallery-title">{{ post.title }}</div>
+            <div class="gallery-description">{{ post.content }}.</div>
+        </div>
+
+        {%endfor%}
+    </div>
+</div>
+
+</body>
+</html>
